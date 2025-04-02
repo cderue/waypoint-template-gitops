@@ -1,1 +1,41 @@
 
+# HCP Waypoint Template Definition
+namespace:
+  id: string
+  location:
+    region:
+      provider: string
+      region: string
+
+application_template:
+  id: string
+  name: string
+  summary: string
+  description: string  # A long-form description of what the ApplicationTemplate is to be used for
+  readme_markdown_template: string
+  readme_template: string  # A markdown text template which is rendered when an Application is created
+  labels:
+    - string
+  terraform_cloud_workspace_details:
+    name: string  # The project name for the Terraform Cloud project
+    project_id: string  # The id of the Terraform Cloud project
+  tags:
+    - key: string  # the key identifier for this tag
+      value: string
+  action_cfg_refs:
+    - id: string
+      name: string
+  variable_options:  # TFModuleVariable represents a Terraform module variable
+    - name: string  # name is the name of the variable
+      variable_type: string  # variable_type is the type of Terraform variable
+      options:
+        - string
+      user_editable: boolean  # indicates if the variable may be set by the app developer
+      description: string  # description is the description of the variable
+  variable_options_out_of_sync: boolean  # indicates whether the variable_options are out of sync with the Terraform no-code module
+  module_source: string  # where to find the source code for the desired child module
+  tf_execution_mode: string  # the mode in which the Terraform backed workspace should operate in
+  tf_agent_pool_id: string  # the ID of the agent pool to use for the Terraform workspace
+  module_id: string  # the ID of the template's Terraform module
+
+use_module_readme: boolean  # If true, will auto-import the readme from the Terraform module
